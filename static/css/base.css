@@ -1,0 +1,224 @@
+@font-face {
+    font-family: 'decima_monolight';
+    src: url('../font/decima__mono_light-webfont.woff2') format('woff2'),
+    url('../font/decima__mono_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'decima_monobold';
+    src: url('../font/decima_mono_bold-webfont.woff2') format('woff2'),
+    url('../font/decima_mono_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'decima_monoregular';
+    src: url('../font/decima_mono-webfont.woff2') format('woff2'),
+    url('../font/decima_mono-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Gloria Hallelujah';
+    font-style: normal;
+    font-weight: 400;
+    font-display: fallback;
+    src: url(../font/font.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    font-family: "decima_monoregular", sans-serif;
+    /* font-family: "decima_monoregular", "Helvetica", "Arial"; */
+    letter-spacing: 0.05em;
+}
+
+#shell {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: calc(100vh);
+    will-change: overflow;
+    backface-visibility: hidden;
+}
+
+.shell-column {
+    overflow: auto;
+    height: auto;
+    padding: .5rem;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+
+.shell-column::-webkit-scrollbar {
+    display: none;
+}
+
+.episode-list-item {
+    margin-top: 50px;
+    display: flex;
+    max-height: 217px;
+}
+
+.episode-info-home {
+    margin-left: 20px;
+}
+
+.episode-info-home h2 {
+    margin-bottom: 5px;
+}
+
+.episode-info-home h3 {
+    margin-top: 5px;
+}
+
+.episode-info-home .news-body {
+    overflow: auto;
+    max-height: 130px;
+}
+
+.blog-list-item {
+    margin-top: 50px;
+    display: flex;
+    /* max-height: 217px; */
+}
+
+.blogpost-info-home {
+    margin-left: 20px
+}
+
+.blogpost-info-home h2 {
+    margin-bottom: 5px;
+}
+
+.blogpost-info-home h3 {
+    margin-top: 5px;
+}
+
+.blogpost-info-home p {
+    overflow: auto;
+    max-height: 300px;
+}
+
+.schedule-item-info h3 {
+
+}
+
+.schedule-item-info p {
+
+}
+
+/* scrollbar stuff */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Index page stuff*/
+
+#latest-episodes-indexpage-header {
+    background-color: black;
+    color: white;
+    width: 316px;
+    height: 45px;
+    margin-left: 3%
+}
+
+#latest-episodes-indexpage-header h1 {
+    line-height: 1.5
+}
+
+#indexpage-episode-list {
+    margin-left: 4%;
+    margin-top: -15px;
+}
+
+#indexpage-schedule-header {
+    background-color: black;
+    color: white;
+    width: 170px;
+    height: 45px;
+    margin-left: 3%;
+
+}
+
+#indexpage-schedule-header h1 {
+    line-height: 1.5;
+}
+
+#indexpage-schedule-list {
+    margin-left: 4%;
+    margin-top: 15px;
+}
+.schedule-item {
+    margin-top: 30px;
+    display: flex;
+    max-height: 100px;
+}
+.schedule-item-info {
+    margin-left: 20px
+}
+
+/* Showpage stuff*/
+#showpage-show-info{
+    margin-top: 75px; display: flex
+}
+#showpage-latest-episodes-header{
+    background-color: black; color: white; width: 316px; height: 45px; margin-left: 3%
+}
+#showpage-latest-episodes-header h1{
+    line-height: 1.5
+}
+#showpage-episode-list{
+    margin-left: 4%; margin-top: -15px;
+}
+#showpage-relatedshows-header{background-color: black; color: white; width: 170px; margin-left: 3%}
+#showpage-relatedshows-header h1{line-height: 1.5}
+#showpage-relatedshows-list{margin-left: 4%; margin-top: 15px;}
+
+
+/* Episodepage stuff*/
+#episodepage-episode-info{
+    margin-top: 75px;
+    /*display: flex*/
+}
+#episodepage-latest-episodes-header{
+    background-color: black; color: white; width: 316px; height: 45px; margin-left: 3%
+}
+#episodepage-latest-episodes-header h1{
+    line-height: 1.5
+}
+#showpage-episode-list{
+    margin-left: 4%; margin-top: -15px;
+}
+/*episodepage-playist-section*/
+#episodepage-playist-header{background-color: black; color: white; width: 170px; margin-left: 3%}
+#episodepage-playist-header h1{line-height: 1.5}
+#episodepage-playist{margin-left: 4%; margin-top: 15px;}
+
+
+
+
+
+

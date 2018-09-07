@@ -1,0 +1,127 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Subcity Radio</title>
+    <meta name="description" content="Online Radio Station">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="{% static "css/base.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/header.css" %}"
+          type="text/css">
+    <link rel="stylesheet" href="{% static "css/footer.css" %}"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+          crossorigin="anonymous">
+
+</head>
+
+<body>
+<!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+<!-- Header-->
+<header>
+    <div id="header-links">
+{#        href="" target="_blank"#}
+        <a style="" href="">Shows</a>
+        <a style="top: -15px" >Contact</a>
+        <a style="top: 19px; left: -48px;" href="http://127.0.0.1:8000/" >Apply</a>
+        <a style="top: 7px; left: -39px;" href="" >Schedule</a>
+        <a style="left: -22px;" href="https://www.subcity.org/mini/guide/"
+           >Guide</a>
+        <a style="top: 16px; left: -39px" href="" >Archive</a>
+        <button id="play-button"></button>
+
+    </div>
+
+    <a style="position: absolute; right: 90px;" href=""
+       target="_blank">
+        <img style="width: 46px; height: 41px; margin-top: 7px; margin-right: 16px; float: right"
+             src="{% static "img/sideLogo.png" %}" alt="Subcity Logo">
+    </a>
+    <a style="position: absolute; right: 0px;" href=""
+       target="_blank">
+        <img style="width: 80px; height: 42px; float: right; margin-right: 20px; margin-top: 7px"
+             src="{% static "img/sideLogoText.png" %}" alt="Subcity Text Logo">
+    </a>
+</header>
+
+<div id="shell">
+    {% block content %}{% endblock %}
+</div>
+<!-- Footer-->
+<footer id="footer_player" class="animated">
+    <div id="footer_top">
+        <div id="player_controls">
+            <i id="footer-rewind" onclick="rewindStream()"
+               class="fa fa-backward"></i>
+            <div id="footer_playPause" onclick="playPauseStream()"><i
+                    class="fa fa-play"></i></div>
+            <i id="footer-forward" onclick="forwardStream()"
+               class="fa fa-forward"></i>
+        </div>
+        <div id="footer_nowPlaying">This is a test Show</div>
+
+    </div>
+    <div id="footer_bottom">
+        <div id="footer_right" class="container">
+            <i id="mute_toggle" class="fa fa-volume-down"></i>
+            <div class="footer_inbtm" class="container">
+                <div id="footer_volWrap">
+                    <div id="footer_volCont">
+                        <div id="footer_volIn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer_left" class="container">
+            <div class="footer_intop" class="container">
+                <span id="footer_timeIn">11:50</span>
+                <span id="footer_timeOut">120:00</span>
+            </div>
+            <div class="footer_inbtm" class="container">
+                <div id="footer_scrubWrap">
+                    <div id="footer_scrubCont">
+                        <div id="footer_scrubBuffer"></div>
+                        <div id="footer_scrubIn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="stream">
+        <source id="streamOPUS" type="audio/ogg; codecs=opus">
+        <source id="streamAAC" type="audio/ogg">
+        <source id="streamMP3" type="audio/mpeg">
+    </audio>
+</footer>
+
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script src="https://www.google-analytics.com/analytics.js" async
+        defer></script>
+<script type="text/javascript" async defer
+        src="{% static "js/radio/audio.js" %}"></script>
+<script type="text/javascript" async defer
+        src="{% static "js/navigation.js" %}"></script>
+{% block js %}{% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{% extends base %}
+{% load static %}
+
+{% block js %}
+        {% for jsFile in jsFiles %}
+            <script type="text/javascript"
+                    {% with jsFile as js %}
+            src="{% static js %}" async></script>
+            {% endwith %}
+        {% endfor %}
+    <script>
+        {% if show_logname %}
+            currentShow = '{{ show_logname }}';
+            currentEpisode = '{{ episode_identifier }}';
+        {% endif %}
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="shell-column" style="width: 70%">
+        <section id="episodepage-episode-info">
+        </section>
+    </div>
+    <div class="shell-column" style="width: 30%">
+        <section id="episodepage-playist-section" style="margin-top: 60px;">
+            <div id="episodepage-playist-header">
+                <h1>Playlist</h1>
+            </div>
+            <div id="episodepage-playlist">
+            </div>
+        </section>
+    </div>
+{% endblock %}
