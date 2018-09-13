@@ -1,0 +1,120 @@
+{% extends base %}
+{% load static %}
+{% block js %}
+    {% for jsFile in jsFiles %}
+        <script type="text/javascript"
+                {% with jsFile as js %}
+                src="{% static js %}"></script>
+                {% endwith %}
+    {% endfor %}
+    <script>
+        {% if page_refresh %}
+            let stateObj = {homePage: "homepage"};
+            history.pushState(stateObj, "homePage", `/`);
+            console.log('done');
+        {% endif %}
+    </script>
+
+{% endblock %}
+{% block content %}
+    <div class="shell-column" style="width: 70%">
+        {#        <section id="live-now" style="margin-top: 75px">#}
+        {#            <div style="background-color: black; color: white; width: 200px; height: 45px; margin-left: 3%">#}
+        {#                <h1 style="line-height: 1.5">Live Now</h1>#}
+        {#            </div>#}
+        {#        </section>#}
+        <section id="Latest Episodes" style="margin-top: 75px;">
+            <div id="latest-episodes-indexpage-header">
+                <h1>Latest Episodes</h1>
+            </div>
+            <div id="indexpage-episode-list">
+            </div>
+        </section>
+        {#        <section id="Blog">#}
+        {#            <div style="background-color: black; color: white; width: 100px; height: 45px; margin-left: 3%">#}
+        {#                <h1 style="line-height: 1.5">Blog</h1>#}
+        {#            </div>#}
+        {#            <div id="blog-list-home"#}
+        {#                 style="margin-left: 4%; margin-top: -15px;">#}
+        {#                <div class="blog-list-item">#}
+        {#                    <img src="http://via.placeholder.com/400x400"#}
+        {#                         style="max-width: 400px; max-height: 400px;">#}
+        {#                    <div class="blogpost-info-home">#}
+        {#                        <h2>Blog post Name</h2>#}
+        {#                        <h3>Date posted</h3>#}
+        {#                        <p>#}
+        {#                            Lorem ipsum dolor sit amet, consectetur adipiscing#}
+        {#                            elit. Phasellus quis hendrerit est, id pharetra#}
+        {#                            nisl. Proin porttitor a ligula ac tincidunt. Donec#}
+        {#                            posuere lectus urna, in faucibus eros posuere quis.#}
+        {#                            Orci varius natoque penatibus et magnis dis#}
+        {#                            parturient montes, nascetur ridiculus mus. Mauris#}
+        {#                            ac varius erat. Vivamus ut rhoncus metus. Nam risus#}
+        {#                            massa, ultrices id ex a, consectetur fermentum#}
+        {#                            erat. Fusce hendrerit enim ac malesuada commodo.#}
+        {#                            Quisque quis sem odio. Duis mollis cursus rutrum.#}
+        {#                            Praesent eget dolor mollis, dignissim metus#}
+        {#                            posuere, vestibulum ligula. Nam rhoncus ac tellus#}
+        {#                            sed pulvinar.#}
+        {#                        </p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="blog-list-item">#}
+        {#                    <img src="http://via.placeholder.com/400x400"#}
+        {#                         style="max-width: 400px; max-height: 400px;">#}
+        {#                    <div class="blogpost-info-home">#}
+        {#                        <h2>Blog post Name</h2>#}
+        {#                        <h3>Date posted</h3>#}
+        {#                        <p>#}
+        {#                            Lorem ipsum dolor sit amet, consectetur adipiscing#}
+        {#                            elit. Phasellus quis hendrerit est, id pharetra#}
+        {#                            nisl. Proin porttitor a ligula ac tincidunt. Donec#}
+        {#                            posuere lectus urna, in faucibus eros posuere quis.#}
+        {#                            Orci varius natoque penatibus et magnis dis#}
+        {#                            parturient montes, nascetur ridiculus mus. Mauris#}
+        {#                            ac varius erat. Vivamus ut rhoncus metus. Nam risus#}
+        {#                            massa, ultrices id ex a, consectetur fermentum#}
+        {#                            erat. Fusce hendrerit enim ac malesuada commodo.#}
+        {#                            Quisque quis sem odio. Duis mollis cursus rutrum.#}
+        {#                            Praesent eget dolor mollis, dignissim metus#}
+        {#                            posuere, vestibulum ligula. Nam rhoncus ac tellus#}
+        {#                            sed pulvinar.#}
+        {#                        </p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="blog-list-item">#}
+        {#                    <img src="http://via.placeholder.com/400x400"#}
+        {#                         style="max-width: 400px; max-height: 400px;">#}
+        {#                    <div class="blogpost-info-home">#}
+        {#                        <h2>Blog post Name</h2>#}
+        {#                        <h3>Date posted</h3>#}
+        {#                        <p>#}
+        {#                            Lorem ipsum dolor sit amet, consectetur adipiscing#}
+        {#                            elit. Phasellus quis hendrerit est, id pharetra#}
+        {#                            nisl. Proin porttitor a ligula ac tincidunt. Donec#}
+        {#                            posuere lectus urna, in faucibus eros posuere quis.#}
+        {#                            Orci varius natoque penatibus et magnis dis#}
+        {#                            parturient montes, nascetur ridiculus mus. Mauris#}
+        {#                            ac varius erat. Vivamus ut rhoncus metus. Nam risus#}
+        {#                            massa, ultrices id ex a, consectetur fermentum#}
+        {#                            erat. Fusce hendrerit enim ac malesuada commodo.#}
+        {#                            Quisque quis sem odio. Duis mollis cursus rutrum.#}
+        {#                            Praesent eget dolor mollis, dignissim metus#}
+        {#                            posuere, vestibulum ligula. Nam rhoncus ac tellus#}
+        {#                            sed pulvinar.#}
+        {#                        </p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
+    </div>
+    <div class="shell-column" style="width: 30%">
+        <section id="indexpage-schedule" style="margin-top: 60px;">
+            <div id="indexpage-schedule-header">
+                <h1>Schedule</h1>
+            </div>
+            <div id="indexpage-schedule-list">
+            </div>
+        </section>
+    </div>
+{% endblock %}

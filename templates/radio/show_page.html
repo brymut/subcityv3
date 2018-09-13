@@ -1,0 +1,42 @@
+{% extends base %}
+{% load static %}
+
+{% block js %}
+    {% for jsFile in jsFiles %}
+        <script type="text/javascript"
+                {% with jsFile as js %}
+                src="{% static js %}" async></script>
+                {% endwith %}
+    {% endfor %}
+    <script>
+        {% if show_logname %}
+            currentShow = '{{ show_logname }}';
+        {% endif %}
+        {% if page_refresh %}
+            let stateObj = {showLogName: '{{ show_logname }}' };
+            history.pushState(stateObj, "showPage", `/shows/{{ show_logname }}/`);
+        {% endif %}
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="shell-column" style="width: 70%">
+        <section id="showpage-show-info">
+        </section>
+        <section id="showpage-latest-episodes" style="margin-top: 75px;">
+            <div id="showpage-latest-episodes-header">
+                <h1>Latest Episodes</h1>
+            </div>
+            <div id="showpage-episode-list">
+            </div>
+        </section>
+    </div>
+    <div class="shell-column" style="width: 30%">
+        <section id="showpage-relatedshows" style="margin-top: 60px;">
+            <div id="showpage-relatedshows-header">
+                <h1>Related Shows</h1>
+            </div>
+            <div id="showpage-relatedshows-list">
+            </div>
+        </section>
+    </div>
+{% endblock %}
