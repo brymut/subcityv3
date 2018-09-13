@@ -1,16 +1,15 @@
 function getLatestEpisodes(currentShow) {
-    //"http://127.0.0.1:8000/api/radio/episodes/657/" http://127.0.0.1:8000/api/radio/episodes/showlogname/${currentShow}/
-    fetch(`http://127.0.0.1:8000/api/radio/news/showlogname/${currentShow}/`).then(function (response) {
+    //" /api/radio/episodes/657/"  /api/radio/episodes/showlogname/${currentShow}/
+    fetch(`/api/radio/news/showlogname/${currentShow}/`).then(function (response) {
         let show_info = {};
         response.json().then(function (data) {
-            console.log(data.results);
-            fetch(`http://127.0.0.1:8000/api/radio/shows/${data.results[0].news_show_id}/`).then(function (response) {
+            fetch(`/api/radio/shows/${data.results[0].news_show_id}/`).then(function (response) {
                 response.json().then(function (data) {
                     show_info.showName = data.show_name;
                     show_info.showDescription = data.show_description;
                     show_info.showImageId = data.show_image_id;
                     show_info.showLogname = data.show_logname;
-                    fetch(`http://127.0.0.1:8000/api/radio/image/${data.show_image_id}/`).then(function (response) {
+                    fetch(`/api/radio/image/${data.show_image_id}/`).then(function (response) {
                         response.json().then(function (data) {
                             show_info.showImageSrc = data.image_src;
                             show_info.showImageHeight = data.image_height;
@@ -22,17 +21,15 @@ function getLatestEpisodes(currentShow) {
             });
             for (let current_episode of data.results) {
                 let episode_info = {};
-                console.log(data.results);
                 episode_info.episodeBody = current_episode.news_body;
                 episode_info.showId = current_episode.news_show_id;
                 episode_info.episodeId = current_episode.news_episode_id;
                 episode_info.showLogname = show_info.showLogName;
-                fetch(`http://127.0.0.1:8000/api/radio/episodes/episodeid/${episode_info.episodeId}/`).then(function (response) {
+                fetch(`/api/radio/episodes/episodeid/${episode_info.episodeId}/`).then(function (response) {
                     response.json().then(function (data) {
                         episode_info.episodeTitle = data.episode_title;
                         episode_info.episodeDate = data.episode_start;
                         episode_info.episodeIdentifier = data.episode_identifier;
-                        console.log(episode_info);
                         applyLatestEpisodes(episode_info);
                     });
                 });

@@ -11,6 +11,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = [
 
     path('', views.index, name='radio-homepage'),
+    path('apply/', views.apply_page, name='apply-page'),
     path('shows/<str:requested_show_logname>/', views.show_page,
          name='show-page'),
     path(
@@ -64,7 +65,8 @@ urlpatterns = [
     path('api/radio/news/', api.latest_episode_news_station,
          name='schedule_now'),
     # ex: api/radio/news/beatsofallnations/
-    path('api/radio/news/showlogname/<str:requested_show_logname>/', api.latest_episode_news_show_by_show_logname,
+    path('api/radio/news/showlogname/<str:requested_show_logname>/',
+         api.latest_episode_news_show_by_show_logname,
          name='show_news_logname'),
     # ex: api/radio/news/13/544
     path('api/radio/news/<int:requested_show_id>/<int:requested_episode_id>/',

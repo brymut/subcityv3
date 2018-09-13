@@ -240,7 +240,9 @@ def latest_episode_news_station(request, format=None):
     """
     if request.method == 'GET':
         news = EpisodeNews.objects.filter(
-            news_date__lte=datetime.date.today()).order_by('news_date')
+            news_date__lte=datetime.date.today(),
+            news_episode_id__gt=0
+        ).order_by('-news_date')
         paginator = PageNumberPagination()
         paginator.page_size = 10
         page = paginator.paginate_queryset(news, request)

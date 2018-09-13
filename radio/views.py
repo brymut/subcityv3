@@ -17,6 +17,7 @@ def is_fetch(request, page, context_dict):
 
     if request.method == 'GET':
         d['base'] = 'base.html'
+        d['page_refresh'] = 'true'
     elif request.method == 'POST':
         try:
             request_body = json.loads(request.body)
@@ -27,8 +28,6 @@ def is_fetch(request, page, context_dict):
             d['base'] = 'empty.html'
         else:
             d['base'] = 'base.html'
-    print(context_dict)
-
     return render(request, page, d)
 
 
@@ -58,3 +57,17 @@ def episode_page(request, requested_show_logname,
                     'jsFiles': js_files}
 
     return is_fetch(request, 'radio/episode_page.html', context_dict)
+
+
+def apply_page(request):
+    js_files = ["js/radio/apply.js", ]
+    context_dict = {'team': 'false',
+                    'show': 'true',
+                    'jsFiles': js_files}
+    return is_fetch(request, 'apply.html', context_dict)
+
+
+def contact_page(request):
+    js_files = ["js/radio/contact.js", ]
+    context_dict = {'jsFiles': js_files}
+    return is_fetch(request, 'apply.html', context_dict)

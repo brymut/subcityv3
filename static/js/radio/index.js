@@ -4,17 +4,22 @@ function getCookie(name) {
 }
 
 function getSchedule() {
-    fetch("http://127.0.0.1:8000/api/radio/schedule/today/").then(function (response) {
+    fetch("/api/radio/schedule/today/").then(function (response) {
         response.json().then(function (data) {
             for (let current_show of data) {
                 let show_info = {};
                 show_info.startTime = current_show.episode_start;
-                fetch(`http://127.0.0.1:8000/api/radio/shows/${current_show.episode_show_id}/`).then(function (response) {
+                fetch(`/api/radio/shows/${current_show.episode_show_id}/`).then(function (response) {
                     response.json().then(function (data) {
                         show_info.showName = data.show_name;
                         show_info.showLogname = data.show_logname;
                         show_info.showLink = `https://subcity.org/shows/${data.show_logname}/`;
-                        applySchedule(show_info);
+                        fetch(`/api/radio/image/${data.show_image_id}/`).then(function (response) {
+                            response.json().then(function (data) {
+                                show_info.showImageSrc = data.image_src;
+                                applySchedule(show_info);
+                            });
+                        });
                     })
                 })
             }
@@ -26,8 +31,8 @@ function getSchedule() {
 function applySchedule(show_info) {
     if (show_info) {
         htmlContent = `<div class="schedule-item">
-                    <img src="http://via.placeholder.com/100x100"
-                         style="max-width: 100px; max-height: 100px;">
+                    <img src="https://old.subcity.org/images/cms/${show_info.showImageSrc}"
+                 style="max-width: 100px; max-height: 100px;">
                     <div class="schedule-item-info">
                         <a onclick="navigateShow('${show_info.showLogname}');"><h3>${show_info.showName}</h3></a>
                         <p>
@@ -46,7 +51,7 @@ function applySchedule(show_info) {
 }
 
 function getNews() {
-    fetch("http://127.0.0.1:8000/api/radio/news/").then(function (response) {
+    fetch("/api/radio/news/").then(function (response) {
         response.json().then(function (data) {
             for (let current_news of data.results) {
                 let news_info = {};
@@ -54,11 +59,11 @@ function getNews() {
                 news_info.newsBody = current_news.news_body;
                 news_info.newsDate = current_news.news_date;
 
-                fetch(`http://127.0.0.1:8000/api/radio/shows/${current_news.news_show_id}/`).then(function (response) {
+                fetch(`/api/radio/shows/${current_news.news_show_id}/`).then(function (response) {
                     response.json().then(function (data) {
                         news_info.showName = data.show_name;
                         news_info.showLogname = data.show_logname;
-                        fetch(`http://127.0.0.1:8000/api/radio/episodes/episodeid/${current_news.news_episode_id}/`).then(function (response) {
+                        fetch(`/api/radio/episodes/episodeid/${current_news.news_episode_id}/`).then(function (response) {
                             response.json().then(function (data) {
                                 news_info.episodeIdentifier = data.episode_identifier;
                                 applyNews(news_info);
