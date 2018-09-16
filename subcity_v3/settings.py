@@ -25,7 +25,7 @@ SECRET_KEY = 'xtt15@1uvk@223oaldiw45cl@18847y48!avuhy()&16@pnn&2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['subcity-web-ui.appspot.com', '127.0.0.1', 'localhost', 'bsradio.subcity.org']
 
 
 # Application definition
@@ -128,7 +128,7 @@ TIME_ZONE = 'UTC'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'https://storage.googleapis.com/subcity-web-ui/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),

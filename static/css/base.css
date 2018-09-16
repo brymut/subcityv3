@@ -217,6 +217,22 @@ body {
 #episodepage-playist-header h1{line-height: 1.5}
 #episodepage-playist{margin-left: 4%; margin-top: 15px;}
 
+/* Apply page stuff*/
+
+#team-applications-header{
+    background-color: black; color: white; width: 316px; height: 45px; margin-left: 3%;
+}
+
+#show-applications-header{
+    background-color: black; color: white; width: 316px; height: 45px; margin-left: 3%;
+}
+#team-applications-header h1{
+    line-height: 1.5;
+}
+
+#show-applications-header h1{
+    line-height: 1.5;
+}
 
 
 

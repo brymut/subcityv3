@@ -81,7 +81,7 @@ function getNews() {
 function applyNews(news_info) {
     if (news_info) {
         htmlContent = `<div class="episode-list-item">
-                    <img onclick="navigateEpisode('${news_info.showLogname}','${news_info.episodeIdentifier}')" src="http://via.placeholder.com/400x190"
+                    <img onclick="navigateEpisode('${news_info.showLogname}','${news_info.episodeIdentifier}')" src="/static/img/subcity_default.jpg"
                          style="max-width: 400px; max-height: 190px;">
                     <div class="episode-info-home">
                         <h2 class="episode-title-home" onclick="navigateEpisode('${news_info.showLogname}','${news_info.episodeIdentifier}')">${news_info.newsTitle}</h2>
@@ -101,6 +101,7 @@ function applyNews(news_info) {
 function loadData() {
     getSchedule();
     getNews();
+    return false;
 }
 
 loadData();

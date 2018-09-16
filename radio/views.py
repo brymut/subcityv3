@@ -34,13 +34,13 @@ def is_fetch(request, page, context_dict):
 #
 # Pages
 #
-
+@csrf_exempt
 def index(request):
     js_files = ["js/radio/index.js", ]
     context_dict = {'jsFiles': js_files}
     return is_fetch(request, 'radio/index.html', context_dict)
 
-
+@csrf_exempt
 def show_page(request, requested_show_logname):
     js_files = ["js/radio/showpage.js", ]
     context_dict = {'show_logname': requested_show_logname,
@@ -48,7 +48,7 @@ def show_page(request, requested_show_logname):
 
     return is_fetch(request, 'radio/show_page.html', context_dict)
 
-
+@csrf_exempt
 def episode_page(request, requested_show_logname,
                  requested_episode_identifier):
     js_files = ["js/radio/episodepage.js", ]
@@ -58,7 +58,7 @@ def episode_page(request, requested_show_logname,
 
     return is_fetch(request, 'radio/episode_page.html', context_dict)
 
-
+@csrf_exempt
 def apply_page(request):
     js_files = ["js/radio/apply.js", ]
     context_dict = {'team': 'false',
@@ -66,8 +66,8 @@ def apply_page(request):
                     'jsFiles': js_files}
     return is_fetch(request, 'apply.html', context_dict)
 
-
+@csrf_exempt
 def contact_page(request):
     js_files = ["js/radio/contact.js", ]
     context_dict = {'jsFiles': js_files}
-    return is_fetch(request, 'apply.html', context_dict)
+    return is_fetch(request, 'contact.html', context_dict)

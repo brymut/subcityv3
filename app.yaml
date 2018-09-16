@@ -1,0 +1,13 @@
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT --workers=4 subcity_v3.wsgi
+
+runtime_config:
+  python_version: 3
+
+threadsafe: true
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 6
+  cpu_utilization:
+    target_utilization: 0.7

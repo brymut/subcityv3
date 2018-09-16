@@ -1,0 +1,8 @@
+[
+    {
+      "origin": ["https://subcity-web-ui.appspot.com/","https://bsradio.subcity.org"],
+      "responseHeader": ["Content-Type"],
+      "method": ["GET", "HEAD", "DELETE"],
+      "maxAgeSeconds": 3600
+    }
+]

@@ -40,8 +40,8 @@
     <div id="header-links">
 {#        href="" target="_blank"#}
         <a style="" href="">Shows</a>
-        <a style="top: -15px" >Contact</a>
-        <a style="top: 19px; left: -48px;" href="http://127.0.0.1:8000/" >Apply</a>
+        <a style="top: -15px" onclick="navigateContact();" >Contact</a>
+        <a style="top: 19px; left: -48px;" onclick="navigateApply();" >Apply</a>
         <a style="top: 7px; left: -39px;" href="" >Schedule</a>
         <a style="left: -22px;" href="https://www.subcity.org/mini/guide/"
            >Guide</a>
@@ -50,12 +50,12 @@
 
     </div>
 
-    <a style="position: absolute; right: 90px;" href=""
+    <a style="position: absolute; right: 90px;" onclick="navigateIndex();"
        target="_blank">
         <img style="width: 46px; height: 41px; margin-top: 7px; margin-right: 16px; float: right"
              src="{% static "img/sideLogo.png" %}" alt="Subcity Logo">
     </a>
-    <a style="position: absolute; right: 0px;" href=""
+    <a style="position: absolute; right: 0px;" onclick="navigateIndex();"
        target="_blank">
         <img style="width: 80px; height: 42px; float: right; margin-right: 20px; margin-top: 7px"
              src="{% static "img/sideLogoText.png" %}" alt="Subcity Text Logo">

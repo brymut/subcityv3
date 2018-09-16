@@ -1,0 +1,33 @@
+{% extends base %}
+{% load static %}
+
+{% block js %}
+    {% for jsFile in jsFiles %}
+        <script type="text/javascript"
+                {% with jsFile as js %}
+                src="{% static js %}" async></script>
+                {% endwith %}
+    {% endfor %}
+    <script>
+        teamApps = '{{ team }}';
+        showApps = '{{ show }}';
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="shell-column" style="width: 100%">
+        <section id="team-applications" style="margin-top: 75px;">
+            <div id="team-applications-header">
+                <h1>Team Applications</h1>
+            </div>
+            <div id="team-applications-body">
+            </div>
+        </section>
+        <section id="show-applications" style="margin-top: 75px;">
+            <div id="show-applications-header">
+                <h1>Show Applications</h1>
+            </div>
+            <div id="show-applications-body">
+            </div>
+        </section>
+    </div>
+{% endblock %}

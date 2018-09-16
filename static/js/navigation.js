@@ -46,7 +46,8 @@ let navigateIndex = function () {
         affixScriptToHead(doc.head.children[0].src, function () {
             console.log(location);
         });
-    })
+    });
+    return false;
 };
 
 let navigateShow = function (show_logname) {
@@ -145,6 +146,37 @@ let navigateApply = function () {
     })
 };
 
+let navigateContact = function () {
+    parser = new DOMParser();
+    let data = {isFetch: 'true'};
+    fetch(`/contact/`,
+        {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                "X-CSRFToken": getCookie("csrftoken"),
+            }
+        }
+    ).then(function (response) {
+        return response.text();
+    }).then(function (data) {
+        doc = parser.parseFromString(data, "text/html");
+        if (navigatingBack !== true) {
+            let stateObj = {applyPage: 'contactPage'};
+            history.pushState(stateObj, "contactPage", `/contact/`);
+            navigatingBack = false;
+        }
+        document.getElementById('shell').innerHTML = doc.body.innerHTML;
+        if (doc.head.children[1]) {
+            eval(doc.head.children[1].textContent);
+        }
+        affixScriptToHead(doc.head.children[0].src, function () {
+            console.log(location);
+        });
+    })
+};
+
 window.onpopstate = function (event) {
     console.log(event.state);
 
@@ -163,5 +195,8 @@ window.onpopstate = function (event) {
     } else if (event.state.applyPage) {
         navigatingBack = true;
         navigateApply();
+    }else if (event.state.contactPage) {
+        navigatingBack = true;
+        navigateContact();
     }
 };

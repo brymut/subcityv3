@@ -26,7 +26,7 @@ function getEpisodeInfo(currentEpisodeIdentifier) {
 
 function applyEpisodeInfo(episode_info) {
     if (episode_info) {
-        htmlContent = `<img src="http://via.placeholder.com/400x190"
+        htmlContent = `<img src="https://storage.googleapis.com/subcity-web-ui/static/img/subcity_default.jpg"
                          style="max-width: 400px; max-height: 190px;">
             <div class="episode-info-home">
                 <h2 class="episode-title-home">${episode_info.episodeTitle}</h2>

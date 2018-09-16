@@ -1,0 +1,61 @@
+{% extends base %}
+{% load static %}
+
+{% block js %}
+    {% for jsFile in jsFiles %}
+        <script type="text/javascript"
+                {% with jsFile as js %}
+                src="{% static js %}" async></script>
+                {% endwith %}
+    {% endfor %}
+    <script>
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="shell-column" style="width: 50%">
+        <section id="team-applications" style="margin-top: 75px;">
+            <div id="team-applications-header">
+                <h1>About</h1>
+            </div>
+            <div id="about-body">
+            </div>
+        </section>
+        <section id="show-applications" style="margin-top: 75px;">
+            <div id="show-applications-header">
+                <h1>Team</h1>
+            </div>
+            <div id="team-body">
+            </div>
+        </section>
+        <section id="show-applications" style="margin-top: 75px;">
+            <div id="show-applications-header">
+                <h1>Shows</h1>
+            </div>
+            <div id="shows-body">
+            </div>
+        </section>
+    </div>
+    <div class="shell-column" style="width: 50%">
+        <section id="team-applications" style="margin-top: 75px;">
+            <div id="team-applications-header">
+                <h1>Features</h1>
+            </div>
+            <div id="features-body">
+            </div>
+        </section>
+        <section id="show-applications" style="margin-top: 75px;">
+            <div id="show-applications-header">
+                <h1>Complaints</h1>
+            </div>
+            <div id="complaints-body">
+            </div>
+        </section>
+        <section id="show-applications" style="margin-top: 75px;">
+            <div id="show-applications-header">
+                <h1>Phone and Post</h1>
+            </div>
+            <div id="phone-and-post-body">
+            </div>
+        </section>
+    </div>
+{% endblock %}

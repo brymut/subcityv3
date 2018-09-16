@@ -12,6 +12,7 @@ urlpatterns = [
 
     path('', views.index, name='radio-homepage'),
     path('apply/', views.apply_page, name='apply-page'),
+    path('contact/', views.contact_page, name='contact-page'),
     path('shows/<str:requested_show_logname>/', views.show_page,
          name='show-page'),
     path(

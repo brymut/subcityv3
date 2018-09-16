@@ -1,11 +1,11 @@
 function applyApplicationInfo(team, show) {
 
-    if (team === true) {
+    if (teamApps === 'true') {
         teamAppsHTMLContent = `<p>Subcity Radio is run as a team of approximately 20 people, loosely subdivided into teams to ensure the smooth running of the station's output which is broadly comprised of our radio content, website and events. Team members are encouraged to develop skills across various aspects of the station, so a knowledge of or interest in more than one aspect of the station is beneficial in an application. Dedication, creativity and interpersonal skills are all essential and a knowledge of the station and our output is recommended, but you do not have to be a student to apply. However, it should be expected that team members attend the weekly team meeting and help with running events on the night. Applications are currently closed, but keep an eye on our social media for when they reopen.</p>`;
     } else {
         teamAppsHTMLContent = `<p> COme on in</p>`
     }
-    if (show === true) {
+    if (showApps === 'true') {
         showHtmlContent = `<p>Subcity Radio is run as a team of approximately 20 people, loosely subdivided into teams to ensure the smooth running of the station's output which is broadly comprised of our radio content, website and events. Team members are encouraged to develop skills across various aspects of the station, so a knowledge of or interest in more than one aspect of the station is beneficial in an application. Dedication, creativity and interpersonal skills are all essential and a knowledge of the station and our output is recommended, but you do not have to be a student to apply. However, it should be expected that team members attend the weekly team meeting and help with running events on the night. Applications are currently closed, but keep an eye on our social media for when they reopen.</p>`;
     } else {
         showHtmlContent = `<p>We are now recruiting for new shows on Subcity Radio. As a freeform radio station our presenters have complete creative control over their shows. There are shows dedicated to music and shows dedicated to chat plus everything in between, nothing is too outlandish. We look for well thought out ideas and the belief than you can carry them out. This semester we are especially interested in applications for morning and daytime shows, although we'll still of course consider your application if it doesn't fall within those categories.</p>
@@ -25,4 +25,4 @@ function applyApplicationInfo(team, show) {
 
 }
 
-applyApplicationInfo(open_team, open_show);
+applyApplicationInfo(teamApps, showApps);

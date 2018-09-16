@@ -244,7 +244,7 @@ def latest_episode_news_station(request, format=None):
             news_episode_id__gt=0
         ).order_by('-news_date')
         paginator = PageNumberPagination()
-        paginator.page_size = 10
+        paginator.page_size = 4
         page = paginator.paginate_queryset(news, request)
 
         serializer = EpisodeNewsSerializer(page, many=True)
