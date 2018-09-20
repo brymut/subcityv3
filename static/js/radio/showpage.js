@@ -57,7 +57,7 @@ function applyShowInfo(show_info) {
 function applyLatestEpisodes(episode_info) {
     if (episode_info) {
         htmlContent = `<div class="episode-list-item">
-                    <img src="/static/img/subcity_default.jpg"
+                    <img src="https://storage.googleapis.com/subcity-web-ui/static/img/subcity_default.jpg"
                          style="max-width: 400px; max-height: 190px;"
                          onclick="navigateEpisode('${episode_info.showLogname}','${episode_info.episodeIdentifier}')">
                     <div class="episode-info-home">

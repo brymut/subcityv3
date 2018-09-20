@@ -25,7 +25,8 @@ SECRET_KEY = 'xtt15@1uvk@223oaldiw45cl@18847y48!avuhy()&16@pnn&2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['subcity-web-ui.appspot.com', '127.0.0.1', 'localhost', 'bsradio.subcity.org']
+ALLOWED_HOSTS = ['subcity-web-ui.appspot.com', '127.0.0.1', 'localhost',
+                 'bsradio.subcity.org', 'beta.subcity.org']
 
 
 # Application definition

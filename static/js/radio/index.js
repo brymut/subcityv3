@@ -81,7 +81,7 @@ function getNews() {
 function applyNews(news_info) {
     if (news_info) {
         htmlContent = `<div class="episode-list-item">
-                    <img onclick="navigateEpisode('${news_info.showLogname}','${news_info.episodeIdentifier}')" src="/static/img/subcity_default.jpg"
+                    <img onclick="navigateEpisode('${news_info.showLogname}','${news_info.episodeIdentifier}')" src="https://storage.googleapis.com/subcity-web-ui/static/img/subcity_default.jpg"
                          style="max-width: 400px; max-height: 190px;">
                     <div class="episode-info-home">
                         <h2 class="episode-title-home" onclick="navigateEpisode('${news_info.showLogname}','${news_info.episodeIdentifier}')">${news_info.newsTitle}</h2>

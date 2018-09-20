@@ -1,6 +1,6 @@
 [
     {
-      "origin": ["https://subcity-web-ui.appspot.com/","https://bsradio.subcity.org"],
+      "origin": ["https://subcity-web-ui.appspot.com/","https://bsradio.subcity.org", "https://beta.subcity.org"],
       "responseHeader": ["Content-Type"],
       "method": ["GET", "HEAD", "DELETE"],
       "maxAgeSeconds": 3600

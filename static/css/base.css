@@ -234,7 +234,25 @@ body {
     line-height: 1.5;
 }
 
-
+a {
+    text-decoration: none;
+   }
+a {
+     border-bottom: 1px solid rgba(192, 192, 192, 0);
+   
+     -webkit-transition: border 500ms ease;
+     -moz-transition: border 500ms ease;
+     -ms-transition: border 500ms ease;
+     -o-transition: border 500ms ease;
+     transition: border 500ms ease;
+}
+a:hover {
+     border-bottom: 1px solid rgba(192, 192, 192, 1);
+}
+   
+   
+   
+   
 
 
 
